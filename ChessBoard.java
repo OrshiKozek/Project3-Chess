@@ -3,11 +3,36 @@ public class ChessBoard{
 	private static String[][] board = new String[9][9];
 	
 	public static void main(String[] args) {
-		createBoard();
-		displayBoard();
+		// createBoard();
+		// displayBoard();
 
+		Pawn first = new Pawn(1, "pawn", 1.1);
 
+		System.out.println(first.printName());
+		System.out.println(first.printNumber());
+		System.out.println(first.printDouble());
+		System.out.println(first.move());
 
+		Rook second = new Rook(2, "rook", 2.2);
+
+		System.out.println(second.printName());
+		System.out.println(second.printNumber());
+		System.out.println(second.printDouble());
+		System.out.println(second.move());
+
+		Knight third = new Knight(3, "knight", 3.3);
+
+		System.out.println(third.printName());
+		System.out.println(third.printNumber());
+		System.out.println(third.printDouble());
+		System.out.println(third.move());
+
+		Bishop fourth = new Bishop(4, "bishop", 4.4);
+
+		System.out.println(fourth.printName());
+		System.out.println(fourth.printNumber());
+		System.out.println(fourth.printDouble());
+		System.out.println(fourth.move());
 
 		
 
