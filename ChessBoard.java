@@ -3,8 +3,8 @@ public class ChessBoard{
 	private static String[][] board = new String[9][9];
 	
 	public static void main(String[] args) {
-		// createBoard();
-		// displayBoard();
+		createBoard();
+		displayBoard();
 
 		Pawn first = new Pawn(1, "pawn", 1.1);
 
