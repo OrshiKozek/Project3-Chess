@@ -2,9 +2,10 @@ public class Pawn extends ChessPiece {
 
 	private double dbl;
 
-	public Pawn(int number, String name, double dbl){
-		super(number, name);
+	public Pawn(int number, String name, int xpos, int ypos, String marker, double dbl){
+		super(number, name, xpos, ypos);
 		this.dbl = dbl;
+		setMarker(marker);
 	}
 
 	public int move(){
@@ -14,4 +15,6 @@ public class Pawn extends ChessPiece {
 	public double printDouble(){
 		return dbl;
 	}
+
+
 }
