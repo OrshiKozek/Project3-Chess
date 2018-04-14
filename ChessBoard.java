@@ -1,7 +1,7 @@
-//import java.util.*;
+import java.util.*;
 import java.lang.*;
-import java.util.ArrayList;
-import java.util.List;
+//import java.util.ArrayList;
+//import java.util.List;
 
 public class ChessBoard{
 		
@@ -22,36 +22,18 @@ public class ChessBoard{
         Pawn p7 = new Pawn(1, "pawn", 6, 7, " -P- ", 1.1);
         Pawn p8 = new Pawn(1, "pawn", 6, 8, " -P- ", 1.1);
 
-//		System.out.println(first.printName());
-//		System.out.println(first.printNumber());
-//		System.out.println(first.printDouble());
-//		System.out.println(first.move());
-
 		Rook r1 = new Rook(2, "rook", 7, 1, " -R- ",  2.2);
         Rook r2 = new Rook(2, "rook", 7, 8, " -R- ",  2.2);
 
-//		System.out.println(second.printName());
-//		System.out.println(second.printNumber());
-//		System.out.println(second.printDouble());
-//		System.out.println(second.move());
 
 		Knight k1 = new Knight(3, "knight", 7, 2," -kn-", 3.3);
 		Knight k2 = new Knight(3, "knight", 7, 7," -kn-", 3.3);
 
-//		System.out.println(third.printName());
-//		System.out.println(third.printNumber());
-//		System.out.println(third.printDouble());
-//		System.out.println(third.move());
 
 		Bishop b1 = new Bishop(4, "bishop", 7, 3, " -B- ", 4.4);
         Bishop b2 = new Bishop(4, "bishop", 7, 6, " -B- ", 4.4);
 
-
-//		System.out.println(fourth.printName());
-//		System.out.println(fourth.printNumber());
-//		System.out.println(fourth.printDouble());
-//		System.out.println(fourth.move());
-		pieces.add(p1);
+        pieces.add(p1);
         pieces.add(p2);
         pieces.add(p3);
         pieces.add(p4);
@@ -63,23 +45,23 @@ public class ChessBoard{
         pieces.add(r1);
         pieces.add(r2);
 
-		pieces.add(k1);
-		pieces.add(k2);
+        pieces.add(k1);
+        pieces.add(k2);
 
-		pieces.add(b1);
-		pieces.add(b2);
-		addPieces(pieces);
+        pieces.add(b1);
+        pieces.add(b2);
+        addPieces(pieces);
         board[7][4] = " =Q= ";
         board[7][5] = " =K= ";
-		displayBoard();
+        displayBoard();
 
 
-		
+
 
 
 	}
 
-	public static void createBoard(){
+	private static void createBoard(){
 		int ycoord = 7;
 		int xcoord = 0;
 
@@ -105,7 +87,7 @@ public class ChessBoard{
 		}
 	}
 
-	public static void displayBoard(){
+	private static void displayBoard(){
 		for (int i = 0; i < board.length; i++) {
 			System.out.println("\n");
 			// System.out.println();
@@ -116,7 +98,7 @@ public class ChessBoard{
 		System.out.println();
 	}
 
-	public static void addPieces(List<ChessPiece> pieces){
+	private static void addPieces(List<ChessPiece> pieces){
 		for (int index = 0; index < pieces.size(); index++) {
 		    ChessPiece aPiece = pieces.get(index);
 			int xval = aPiece.getXpos();
