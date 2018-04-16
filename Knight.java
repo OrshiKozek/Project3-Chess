@@ -8,8 +8,8 @@ public class Knight extends ChessPiece {
 		setMarker(marker);
 	}
 
-	public int move(){
-		return 3;
+	public int move(int newX, int newY){
+		return -1;
 	}
 
 	public double printDouble(){

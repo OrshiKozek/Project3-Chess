@@ -8,8 +8,8 @@ public class Bishop extends ChessPiece {
 		setMarker(marker);
 	}
 
-	public int move(){
-		return 4;
+	public int move(int newX, int newY){
+		return -1;
 	}
 
 	public double printDouble(){

@@ -13,25 +13,25 @@ public class ChessBoard{
 //		displayBoard();
 
 
-		Pawn p1 = new Pawn(1, "pawn", 6, 1, " -P- ", 1.1);
-        Pawn p2 = new Pawn(1, "pawn", 6, 2, " -P- ", 1.1);
-        Pawn p3 = new Pawn(1, "pawn", 6, 3, " -P- ", 1.1);
-        Pawn p4 = new Pawn(1, "pawn", 6, 4, " -P- ", 1.1);
-        Pawn p5 = new Pawn(1, "pawn", 6, 5, " -P- ", 1.1);
-        Pawn p6 = new Pawn(1, "pawn", 6, 6, " -P- ", 1.1);
-        Pawn p7 = new Pawn(1, "pawn", 6, 7, " -P- ", 1.1);
-        Pawn p8 = new Pawn(1, "pawn", 6, 8, " -P- ", 1.1);
+		Pawn p1 = new Pawn(1, "pawn1", 6, 1, " -P- ", 1.1);
+        Pawn p2 = new Pawn(1, "pawn2", 6, 2, " -P- ", 1.1);
+        Pawn p3 = new Pawn(1, "pawn3", 6, 3, " -P- ", 1.1);
+        Pawn p4 = new Pawn(1, "pawn4", 6, 4, " -P- ", 1.1);
+        Pawn p5 = new Pawn(1, "pawn5", 6, 5, " -P- ", 1.1);
+        Pawn p6 = new Pawn(1, "pawn6", 6, 6, " -P- ", 1.1);
+        Pawn p7 = new Pawn(1, "pawn7", 6, 7, " -P- ", 1.1);
+        Pawn p8 = new Pawn(1, "pawn8", 6, 8, " -P- ", 1.1);
 
-		Rook r1 = new Rook(2, "rook", 7, 1, " -R- ",  2.2);
-        Rook r2 = new Rook(2, "rook", 7, 8, " -R- ",  2.2);
-
-
-		Knight k1 = new Knight(3, "knight", 7, 2," -kn-", 3.3);
-		Knight k2 = new Knight(3, "knight", 7, 7," -kn-", 3.3);
+		Rook r1 = new Rook(2, "rook1", 7, 1, " -R- ",  2.2);
+        Rook r2 = new Rook(2, "rook2", 7, 8, " -R- ",  2.2);
 
 
-		Bishop b1 = new Bishop(4, "bishop", 7, 3, " -B- ", 4.4);
-        Bishop b2 = new Bishop(4, "bishop", 7, 6, " -B- ", 4.4);
+		Knight k1 = new Knight(3, "knight1", 7, 2," -kn-", 3.3);
+		Knight k2 = new Knight(3, "knight2", 7, 7," -kn-", 3.3);
+
+
+		Bishop b1 = new Bishop(4, "bishop1", 7, 3, " -B- ", 4.4);
+        Bishop b2 = new Bishop(4, "bishop2", 7, 6, " -B- ", 4.4);
 
         pieces.add(p1);
         pieces.add(p2);
@@ -55,7 +55,13 @@ public class ChessBoard{
         board[7][5] = " =K= ";
         displayBoard();
 
-
+		movePieces(p1, 4, 1);
+		movePieces(p2, 5, 2);
+		movePieces(p3, 3, 3);
+		movePieces(p4, 5,5);
+		movePieces(p1, 3,1);
+		movePieces(p2, 3, 2);
+		displayBoard();
 
 
 
@@ -108,6 +114,20 @@ public class ChessBoard{
 
 	}
 
+	private static void movePieces(ChessPiece piece, int newX, int newY) {
+        int oldX = piece.getXpos();
+        int oldY = piece.getYpos();
+
+        int returnVal = piece.move(newX, newY);
+
+
+        if (returnVal == 0) { //if the move is legal, then change the marker
+            board[oldX][oldY] = " --- "; //this changes the marker even if the pawn does not move
+            board[piece.getXpos()][piece.getYpos()] = piece.getMarker();
+        } else {
+            System.out.println("We did not change the marker");
+        }
+    }
 
 
 

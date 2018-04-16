@@ -41,5 +41,13 @@ public abstract class ChessPiece {
 		return ypos;
 	}
 
-	public abstract int move();
+	public void setXpos(int xpos) {
+		this.xpos = xpos;
+	}
+
+	public void setYpos(int ypos) {
+		this.ypos = ypos;
+	}
+
+	public abstract int move(int xpos, int ypos);
 }
