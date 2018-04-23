@@ -2,9 +2,8 @@ public class Pawn extends ChessPiece {
 
 	private double dbl;
 
-	public Pawn(int number, String name, int xpos, int ypos, String marker, double dbl){
-		super(number, name, xpos, ypos);
-		this.dbl = dbl;
+	public Pawn(String name, int xpos, int ypos, String marker){
+		super(name, xpos, ypos);
 		setMarker(marker);
 	}
 
@@ -18,7 +17,7 @@ public class Pawn extends ChessPiece {
         if( nowX == 6 ){ //if pawn is still in the starting position
             //check if moving forward- y-position should be the same throughout
             if(newY != nowY){
-                //MUST THROW EXCEPTION FOR ILLEGAL MOVE
+
                 System.out.println(getName());
                 System.out.println("You cannot move sideways");
                 return -1;
@@ -27,7 +26,6 @@ public class Pawn extends ChessPiece {
                 setXpos(newX);
             }
             else{
-                //MUST THROW EXCEPTION FOR ILLEGAL MOVE
                 System.out.println(getName());
                 System.out.println("You cannot move forward more than two spaces");
                 return -1;
@@ -35,7 +33,6 @@ public class Pawn extends ChessPiece {
         }
         else {
             if(newY != nowY){
-                //MUST THROW EXCEPTION FOR ILLEGAL MOVE
                 System.out.println(getName());
                 System.out.println("You cannot move sideways");
                 return -1;
@@ -44,7 +41,6 @@ public class Pawn extends ChessPiece {
                 setXpos(newX);
             }
             else{
-                //MUST THROW EXCEPTION FOR ILLEGAL MOVE
                 System.out.println(getName());
                 System.out.println("You cannot move forward more than one spaces");
                 return -1;
@@ -54,9 +50,7 @@ public class Pawn extends ChessPiece {
     return 0;
 	}
 
-	public double printDouble(){
-		return dbl;
-	}
+
 
 
 }

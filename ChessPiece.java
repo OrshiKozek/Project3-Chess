@@ -8,8 +8,7 @@ public abstract class ChessPiece {
 	private String marker;
 
 
-	public ChessPiece(int number, String name, int xpos, int ypos){
-		this.number = number;
+	public ChessPiece(String name, int xpos, int ypos){
 		this.name = name;
 		this.xpos = xpos;
 		this.ypos = ypos;

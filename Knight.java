@@ -4,9 +4,8 @@ public class Knight extends ChessPiece {
 	
 	private double dbl;
 
-	public Knight(int number, String name, int xpos, int ypos, String marker, double dbl){
-		super(number, name, xpos, ypos);
-		this.dbl = dbl;
+	public Knight( String name, int xpos, int ypos, String marker){
+		super(name, xpos, ypos);
 		setMarker(marker);
 	}
 
@@ -60,8 +59,5 @@ public class Knight extends ChessPiece {
         }
 	}
 
-	public double printDouble(){
-		return dbl;
-	}
 
 }

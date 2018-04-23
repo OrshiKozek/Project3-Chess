@@ -2,9 +2,8 @@ public class Bishop extends ChessPiece {
 	
 	private double dbl;
 
-	public Bishop(int number, String name, int xpos, int ypos, String marker, double dbl){
-		super(number, name, xpos, ypos);
-		this.dbl = dbl;
+	public Bishop(String name, int xpos, int ypos, String marker){
+		super(name, xpos, ypos);
 		setMarker(marker);
 	}
 
@@ -43,7 +42,5 @@ public class Bishop extends ChessPiece {
         }
 	}
 
-	public double printDouble(){
-		return dbl;
-	}
+
 }

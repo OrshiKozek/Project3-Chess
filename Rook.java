@@ -2,9 +2,8 @@ public class Rook extends ChessPiece {
 
 	private double dbl;
 
-	public Rook(int number, String name, int xpos, int ypos, String marker, double dbl){
-		super(number, name, xpos, ypos);
-		this.dbl = dbl;
+	public Rook(String name, int xpos, int ypos, String marker){
+		super(name, xpos, ypos);
 		setMarker(marker);
 	}
 
@@ -36,8 +35,6 @@ public class Rook extends ChessPiece {
 
 	}
 
-	public double printDouble(){
-		return dbl;
-	}
+
 	
 }
