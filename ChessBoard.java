@@ -19,7 +19,6 @@ public class ChessBoard{
             String name = scan.next();
 
             if (name.equals("move")){
-
                 int oldX = scan.nextInt();
                 int oldY = scan.nextInt();
                 int newX = scan.nextInt();
@@ -34,24 +33,26 @@ public class ChessBoard{
 
                 if(name.equals("knight")){
                     Knight k1 = new Knight(name, xpos, ypos, " -h- ");
-                    changeCoordinates(k1);
-//                    System.out.println(k1.getXpos());
-//                    System.out.println(k1.getYpos());
+                    k1.setYpos(changeXCoordinates(xpos));
+                    k1.setXpos(changeYCoordinates(ypos));
                     pieces.add(k1);
                 }
                 else if (name.equals("rook")){
                     Rook r1 = new Rook(name, xpos, ypos, " -R- ");
-                    changeCoordinates(r1);
+                    r1.setYpos(changeXCoordinates(xpos));
+                    r1.setXpos(changeYCoordinates(ypos));
                     pieces.add(r1);
                 }
                 else if (name.equals("bishop")){
                     Bishop b1 = new Bishop(name, xpos, ypos, " -B- ");
-                    changeCoordinates(b1);
+                    b1.setYpos(changeXCoordinates(xpos));
+                    b1.setXpos(changeYCoordinates(ypos));
                     pieces.add(b1);
                 }
                 else{
                     Pawn p1= new Pawn(name, xpos, ypos, " -P- ");
-                    changeCoordinates(p1);
+                    p1.setYpos(changeXCoordinates(xpos));
+                    p1.setXpos(changeYCoordinates(ypos));
                     pieces.add(p1);
 
                 }
@@ -59,48 +60,6 @@ public class ChessBoard{
             }
         }
 
-
-
-//		displayBoard();
-
-
-//		Pawn p1 = new Pawn(1, "pawn1", 6, 1, " -P- ", 1.1);
-//        Pawn p2 = new Pawn(1, "pawn2", 6, 2, " -P- ", 1.1);
-//        Pawn p3 = new Pawn(1, "pawn3", 6, 3, " -P- ", 1.1);
-//        Pawn p4 = new Pawn(1, "pawn4", 6, 4, " -P- ", 1.1);
-//        Pawn p5 = new Pawn(1, "pawn5", 6, 5, " -P- ", 1.1);
-//        Pawn p6 = new Pawn(1, "pawn6", 6, 6, " -P- ", 1.1);
-//        Pawn p7 = new Pawn(1, "pawn7", 6, 7, " -P- ", 1.1);
-//        Pawn p8 = new Pawn(1, "pawn8", 6, 8, " -P- ", 1.1);
-
-//		Rook r1 = new Rook(2, "rook1", 7, 1, " -R- ",  2.2);
-//        Rook r2 = new Rook(2, "rook2", 7, 8, " -R- ",  2.2);
-
-
-//		Knight k1 = new Knight(3, "knight1", 7, 2," -kn-", 3.3);
-//		Knight k2 = new Knight(3, "knight2", 7, 7," -kn-", 3.3);
-
-
-//		Bishop b1 = new Bishop(4, "bishop1", 7, 3, " -B- ", 4.4);
-//        Bishop b2 = new Bishop(4, "bishop2", 7, 6, " -B- ", 4.4);
-
-//        pieces.add(p1);
-//        pieces.add(p2);
-//        pieces.add(p3);
-//        pieces.add(p4);
-//        pieces.add(p5);
-//        pieces.add(p6);
-//        pieces.add(p7);
-//        pieces.add(p8);
-
-//        pieces.add(r1);
-//        pieces.add(r2);
-//
-//        pieces.add(k1);
-//        pieces.add(k2);
-//
-//        pieces.add(b1);
-//        pieces.add(b2);
         addPieces(pieces);
         displayBoard();
 //        board[7][4] = " =Q= ";
@@ -196,66 +155,60 @@ public class ChessBoard{
         }
     }
 
-    public static void changeCoordinates(ChessPiece piece){
-	    int customX = piece.getXpos();
-	    int customY = piece.getYpos();
+    public static int changeXCoordinates(int customX) {
 
-	    if (customX == 0){
-	        piece.setYpos(1);
+        if (customX == 0) {
+            return 1;
 //            System.out.println(piece.getXpos());
-        }
-        else if (customX == 1) {
-	        piece.setYpos(2);
-        }
-        else if (customX == 2) {
-            piece.setYpos(3);
-        }
-        else if (customX == 3) {
-            piece.setYpos(4);
-        }
-        else if (customX == 4) {
-	        piece.setYpos(5);
-        }
-        else if (customX == 5) {
-            piece.setYpos(6);
-        }
-        else if (customX == 6) {
-            piece.setYpos(7);
-        }
-        else if (customX == 7) {
-            piece.setYpos(8);
-        }
-        else{
+        } else if (customX == 1) {
+            return 2;
+        } else if (customX == 2) {
+            return 3;
+        } else if (customX == 3) {
+            return 4;
+        } else if (customX == 4) {
+            return 5;
+        } else if (customX == 5) {
+            return 6;
+        } else if (customX == 6) {
+            return 7;
+        } else if (customX == 7) {
+            return 8;
+        } else {
             System.out.println("OUT OF BOUNDS X");
+            return -1;
         }
-/////////////////////////////////////////////////////
+    }
+
+    public static int changeYCoordinates(int customY){
         if (customY == 0){
-            piece.setXpos(7);
+            return 7;
 //            System.out.println(piece.getYpos());
         }
         else if (customY == 1) {
-            piece.setXpos(6);
+            return 6;
         }
         else if (customY == 2) {
-            piece.setXpos(5);
+            return 5;
         }
         else if (customY == 3) {
-            piece.setXpos(4);
+            return 4;
         }
         else if (customY == 4){
-	        piece.setXpos(3);
+	        return 3;
         }
         else if (customY == 5) {
-            piece.setXpos(2);
+            return 2;
         }
         else if (customY == 6) {
-            piece.setXpos(1);
+            return 1;
         }
         else if (customY == 7) {
-            piece.setXpos(0);
+            return 0;
         }
         else{
             System.out.println("OUT OF BOUNDS Y");
+            return -1;
         }
     }
 

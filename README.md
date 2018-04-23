@@ -11,5 +11,6 @@ I created my own repository instead of using the one created by Professor Leese.
 I added the input file into my own repository, so the other one does not have all the other files.
 
 The coordinates in the input file do not correspond to the coordinates of the 2D array that houses the board.
-The arbitrary coordinates given in the input file must be converted. There is a separate method, changeCoordinates()
-that accomplishes this.
+The arbitrary coordinates given in the input file must be converted. There are two separate methods,
+changeXCoordinates(ypos) and changeYCoordinates(xpos) that accomplishes this.
+(The x and y positions must be switched, even though it seems confusing)
