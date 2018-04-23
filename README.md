@@ -1,5 +1,7 @@
 # project3-chess
 
+#Orshi Kozek
+
 I created my own repository instead of using the one created by Professor Leese.
 I'd already done a lot of work in my own repo, so I decided to stick with this one.
 However, I added the input file from the one linked to the top of the canvas assignment to my own repository,
@@ -26,4 +28,5 @@ I was also unable to make sure that the pawn only moves forward in the first tim
 Pieces can now be moved. I kind of cheated and arbitrarily followed the order of the moved pieces from the input file.
 I used this order to move the different pieces around. Therefore the moving code only works for this specific input file.
 
-I still don't entirely understand how exceptions work, so I do not know if my exceptions are correct.
+I still don't entirely understand how exceptions work, so I do not know if my OutOfBoardException is correct.
+I didn't have time to create the other exception.

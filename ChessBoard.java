@@ -226,12 +226,6 @@ public class ChessBoard{
         public OutOfBoardException(String message){
             super(message);
         }
-
-//        public String toString(){
-//            System.out.println(message);
-//            return null;
-//        }
-
     }
 
     public static class PathWayException extends Exception {
