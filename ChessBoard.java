@@ -12,7 +12,7 @@ public class ChessBoard{
 	private static String[][] board = new String[9][9];
 	private static List<ChessPiece> pieces = new ArrayList<ChessPiece>();
 
-	public static void main(String[] args) throws FileNotFoundException {
+	public static void main(String[] args) throws FileNotFoundException, OutOfBoardException {
 		createBoard();
 
 		File file = new File("input.txt");
@@ -42,21 +42,6 @@ public class ChessBoard{
                 movePieces(changedX, changedY, changedOldX, changedOldY, thisPiece);
 
                 index++;
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
             }
             else{
@@ -154,14 +139,6 @@ public class ChessBoard{
 
 
 
-
-
-
-
-
-
-
-
 //	private static void movePieces(ChessPiece piece, int newX, int newY) {
     private static void movePieces(int newX, int newY, int oldX, int oldY, ChessPiece piece){
 //        int oldX = piece.getXpos();
@@ -180,50 +157,38 @@ public class ChessBoard{
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-    public static int changeXCoordinates(int customX) {
+    public static int changeXCoordinates(int customX) throws OutOfBoardException {
 
         if (customX == 0) {
             return 1;
-        } else if (customX == 1) {
+        }
+        else if (customX == 1) {
             return 2;
-        } else if (customX == 2) {
+        }
+        else if (customX == 2) {
             return 3;
-        } else if (customX == 3) {
+        }
+        else if (customX == 3) {
             return 4;
-        } else if (customX == 4) {
+        }
+        else if (customX == 4) {
             return 5;
-        } else if (customX == 5) {
+        }
+        else if (customX == 5) {
             return 6;
-        } else if (customX == 6) {
+        }
+        else if (customX == 6) {
             return 7;
-        } else if (customX == 7) {
+        }
+        else if (customX == 7) {
             return 8;
-        } else {
-            System.out.println("OUT OF BOUNDS X");
-            return -1;
+        }
+        else{
+            throw new OutOfBoardException("That coordinate does not exist on this chessboard");
         }
     }
 
-    public static int changeYCoordinates(int customY){
+    public static int changeYCoordinates(int customY) throws OutOfBoardException {
         if (customY == 0){
             return 7;
         }
@@ -249,16 +214,24 @@ public class ChessBoard{
             return 0;
         }
         else{
-            System.out.println("OUT OF BOUNDS Y");
-            return -1;
+            throw new OutOfBoardException("That coordinate does not exist on this chessboard");
         }
     }
 
 
 
-
     public static class OutOfBoardException extends Exception {
 	    //if the given point does not exist on the board
+//        String message;
+        public OutOfBoardException(String message){
+            super(message);
+        }
+
+//        public String toString(){
+//            System.out.println(message);
+//            return null;
+//        }
+
     }
 
     public static class PathWayException extends Exception {
