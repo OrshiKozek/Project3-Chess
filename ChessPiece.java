@@ -1,3 +1,4 @@
+import java.lang.Math;
 public abstract class ChessPiece {
 
 	private int number;

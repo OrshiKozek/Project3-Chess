@@ -26,12 +26,12 @@ public class ChessBoard{
 //        Rook r2 = new Rook(2, "rook2", 7, 8, " -R- ",  2.2);
 
 
-//		Knight k1 = new Knight(3, "knight1", 7, 2," -kn-", 3.3);
+		Knight k1 = new Knight(3, "knight1", 7, 2," -kn-", 3.3);
 //		Knight k2 = new Knight(3, "knight2", 7, 7," -kn-", 3.3);
 
 
-		Bishop b1 = new Bishop(4, "bishop1", 7, 3, " -B- ", 4.4);
-        Bishop b2 = new Bishop(4, "bishop2", 7, 6, " -B- ", 4.4);
+//		Bishop b1 = new Bishop(4, "bishop1", 7, 3, " -B- ", 4.4);
+//        Bishop b2 = new Bishop(4, "bishop2", 7, 6, " -B- ", 4.4);
 
 //        pieces.add(p1);
 //        pieces.add(p2);
@@ -45,15 +45,15 @@ public class ChessBoard{
 //        pieces.add(r1);
 //        pieces.add(r2);
 //
-//        pieces.add(k1);
+        pieces.add(k1);
 //        pieces.add(k2);
 //
-        pieces.add(b1);
-        pieces.add(b2);
+//        pieces.add(b1);
+//        pieces.add(b2);
         addPieces(pieces);
 //        board[7][4] = " =Q= ";
 //        board[7][5] = " =K= ";
-//        displayBoard();
+        displayBoard();
 
 //		movePieces(p1, 4, 1);
 //		movePieces(p2, 5, 2);
@@ -63,7 +63,14 @@ public class ChessBoard{
 //		movePieces(p2, 3, 2);
 
 
-        movePieces(b2, 7, 8);
+        movePieces(k1, 5, 3); // legal move
+        displayBoard();
+        movePieces(k1, 5, 6); // illegal move
+        displayBoard();
+        movePieces(k1, 6, 5); // legal move
+        displayBoard();
+        movePieces(k1, 3, 5); // illegal move
+
 //        displayBoard();
 //        movePieces(b2, 5, 7);
 //        displayBoard();
