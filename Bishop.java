@@ -7,7 +7,7 @@ public class Bishop extends ChessPiece {
 		setMarker(marker);
 	}
 
-	public int move(int newX, int newY) throws ArithmeticException{
+	public int move(int newY, int newX) throws ArithmeticException{
 		//can move in any diagonal direction
 		//check  slope of lines--> if equal to 1, or -1, then the move is legal
 

@@ -12,5 +12,14 @@ I added the input file into my own repository, so the other one does not have al
 
 The coordinates in the input file do not correspond to the coordinates of the 2D array that houses the board.
 The arbitrary coordinates given in the input file must be converted. There are two separate methods,
-changeXCoordinates(ypos) and changeYCoordinates(xpos) that accomplishes this.
-(The x and y positions must be switched, even though it seems confusing)
+changeXCoordinates(xpos) and changeYCoordinates(ypos) that accomplishes this.
+
+In the Pawn class's move method, there is a section that is commented out.
+The pawn can only move forward two steps if it is in the sixth row.
+This is because in the official set up of chess pieces, the pawns are all in the 6th row.
+I commented this part out to fit the input file's data. (There is a pawn that starts in the 7th row.)
+I was also unable to make sure that the pawn only moves forward in the first time that it moves.
+
+Pieces can now be moved. I kind of cheated and arbitrarily followed the order of the moved pieces from the input file.
+I used this order to move the different pieces around. Therefore the moving code only works for this specific input file.
+

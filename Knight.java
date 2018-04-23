@@ -9,7 +9,7 @@ public class Knight extends ChessPiece {
 		setMarker(marker);
 	}
 
-	public int move(int newX, int newY){
+	public int move(int newY, int newX){
 		//moves in an L shape-- two steps forward, backward, left or right, then one perpendicular to the other two
         //check if first two are in line with current position
         //then check if final position is over one

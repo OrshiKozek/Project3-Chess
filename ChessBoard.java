@@ -1,6 +1,9 @@
 import java.util.*;
 import java.lang.*;
 import java.io.*;
+
+//import static jdk.vm.ci.amd64.AMD64.CPU;
+//import static jdk.vm.ci.amd64.AMD64.k1;
 //import java.util.ArrayList;
 //import java.util.List;
 
@@ -15,6 +18,8 @@ public class ChessBoard{
 		File file = new File("input.txt");
         Scanner scan = new Scanner(file);
 
+        int[] indexOrders = new int[]{1, 3, 2, 0, 5, 0, 0, 0, 0};
+        int index = 0;
         while (scan.hasNext()) {
             String name = scan.next();
 
@@ -24,6 +29,35 @@ public class ChessBoard{
                 int newX = scan.nextInt();
                 int newY = scan.nextInt();
                 System.out.println(name + " " + oldX + " " + oldY + " " + newX + " " + newY);
+
+                int changedOldY = changeXCoordinates(oldX);
+                int changedOldX = changeYCoordinates(oldY);
+
+                int changedX = changeXCoordinates(newX);
+                int changedY = changeYCoordinates(newY);
+
+
+                ChessPiece thisPiece = pieces.get(indexOrders[index]);
+
+                movePieces(changedX, changedY, changedOldX, changedOldY, thisPiece);
+
+                index++;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
             }
             else{
                 int xpos = scan.nextInt();
@@ -49,44 +83,22 @@ public class ChessBoard{
                     b1.setXpos(changeYCoordinates(ypos));
                     pieces.add(b1);
                 }
-                else{
+                else if (name.equals("pawn")){
                     Pawn p1= new Pawn(name, xpos, ypos, " -P- ");
                     p1.setYpos(changeXCoordinates(xpos));
                     p1.setXpos(changeYCoordinates(ypos));
                     pieces.add(p1);
-
+                }
+                else{
+                    addPieces(pieces);
+                    displayBoard();
                 }
 
             }
         }
-
         addPieces(pieces);
         displayBoard();
-//        board[7][4] = " =Q= ";
-//        board[7][5] = " =K= ";
-//        displayBoard();
 
-//		movePieces(p1, 4, 1);
-//		movePieces(p2, 5, 2);
-//		movePieces(p3, 3, 3);
-//		movePieces(p4, 5,5);
-//		movePieces(p1, 3,1);
-//		movePieces(p2, 3, 2);
-
-
-//        movePieces(k1, 5, 3); // legal move
-//        displayBoard();
-//        movePieces(k1, 5, 6); // illegal move
-//        displayBoard();
-//        movePieces(k1, 6, 5); // legal move
-//        displayBoard();
-//        movePieces(k1, 3, 5); // illegal move
-
-//        displayBoard();
-//        movePieces(b2, 5, 7);
-//        displayBoard();
-//        movePieces(b2, 1, 8);
-//        displayBoard();
 
 
 
@@ -140,9 +152,20 @@ public class ChessBoard{
 
 	}
 
-	private static void movePieces(ChessPiece piece, int newX, int newY) {
-        int oldX = piece.getXpos();
-        int oldY = piece.getYpos();
+
+
+
+
+
+
+
+
+
+
+//	private static void movePieces(ChessPiece piece, int newX, int newY) {
+    private static void movePieces(int newX, int newY, int oldX, int oldY, ChessPiece piece){
+//        int oldX = piece.getXpos();
+//        int oldY = piece.getYpos();
 
         int returnVal = piece.move(newX, newY);
 
@@ -155,11 +178,31 @@ public class ChessBoard{
         }
     }
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
     public static int changeXCoordinates(int customX) {
 
         if (customX == 0) {
             return 1;
-//            System.out.println(piece.getXpos());
         } else if (customX == 1) {
             return 2;
         } else if (customX == 2) {
@@ -183,7 +226,6 @@ public class ChessBoard{
     public static int changeYCoordinates(int customY){
         if (customY == 0){
             return 7;
-//            System.out.println(piece.getYpos());
         }
         else if (customY == 1) {
             return 6;
@@ -195,7 +237,7 @@ public class ChessBoard{
             return 4;
         }
         else if (customY == 4){
-	        return 3;
+            return 3;
         }
         else if (customY == 5) {
             return 2;

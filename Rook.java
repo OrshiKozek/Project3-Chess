@@ -7,7 +7,7 @@ public class Rook extends ChessPiece {
 		setMarker(marker);
 	}
 
-	public int move(int newX, int newY){
+	public int move(int newY, int newX){
 		//can move forward, backward left or right only
 		int nowX = getXpos();
 		int nowY = getYpos();
